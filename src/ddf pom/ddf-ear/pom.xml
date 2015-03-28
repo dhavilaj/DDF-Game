@@ -1,0 +1,75 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<artifactId>ddf</artifactId>
+		<groupId>com.ddf</groupId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>ddf-ear</artifactId>
+	<name>DDF Enterprise Application</name>
+	<packaging>ear</packaging>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.2</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>2.9</version>
+				<configuration>
+					<version>7</version>
+					<modules>
+						<ejbModule>
+							<groupId>com.ddf</groupId>
+							<artifactId>ddf-ejb</artifactId>
+							<bundleFileName>ddf-ejb.jar</bundleFileName>
+						</ejbModule>
+						<webModule>
+							<groupId>com.ddf</groupId>
+							<artifactId>ddf-web</artifactId>
+							<bundleFileName>ddf-web.war</bundleFileName>
+							<contextRoot>/ddf-web</contextRoot>
+						</webModule>
+
+					</modules>
+					<displayName>DDF Tesis</displayName>
+					<generateApplicationXml>true</generateApplicationXml>
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.7</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
+		<finalName>ddf-ear</finalName>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.ddf</groupId>
+			<artifactId>ddf-ejb</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>ejb</type>
+		</dependency>
+		<dependency>
+			<groupId>com.ddf</groupId>
+			<artifactId>ddf-web</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>war</type>
+		</dependency>
+	</dependencies>
+
+</project>
