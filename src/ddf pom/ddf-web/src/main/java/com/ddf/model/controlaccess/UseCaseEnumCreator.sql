@@ -1,0 +1,1 @@
+﻿select string_agg( regexp_replace( upper(u.use_case_name ), '[\s\/]',  '_', 'g') || '(' || u.id || ')',',') || ';' AS enumStr from use_case u where app_id = 1
